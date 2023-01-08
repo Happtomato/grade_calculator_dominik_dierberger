@@ -12,7 +12,7 @@
 | 7      | Der Benutzer kann die Hochgeladenen Prüfungen in der Gallerie anschauen |
 ## UseCase
 
-![](C:\Users\domin\StudioProjects\M335\assets\Documentation\usecase.png)
+![](/assets/Documentation/UseCase.jpg)
 ## Storyboard
 ## Navigation
 Mittels gut einsehbaren Knöpfen und Tooltips kann der Benutzer die Applikation benutzen und durch die verscheidenen Screens navigieren.
