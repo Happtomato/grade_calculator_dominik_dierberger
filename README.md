@@ -14,6 +14,7 @@
 
 ![](/assets/Documentation/UseCase.jpg)
 ## Storyboard
+![](/assets/Documentation/Storyboard.jpg)
 ## Navigation
 Mittels gut einsehbaren Knöpfen und Tooltips kann der Benutzer die Applikation benutzen und durch die verscheidenen Screens navigieren.
 ## Bildschirmformate
