@@ -12,7 +12,7 @@
 | 7      | Der Benutzer kann die Hochgeladenen Prüfungen in der Gallerie anschauen |
 ## UseCase
 
-![](C:\Users\domin\StudioProjects\M335\assets\Documentation\WhatsApp Bild 2023-01-02 um 17.44.26.jpg)
+![](C:\Users\domin\StudioProjects\M335\assets\Documentation\usecase.png)
 ## Storyboard
 ## Navigation
 Mittels gut einsehbaren Knöpfen und Tooltips kann der Benutzer die Applikation benutzen und durch die verscheidenen Screens navigieren.
