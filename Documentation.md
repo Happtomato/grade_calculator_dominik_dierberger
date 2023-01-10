@@ -35,13 +35,12 @@ Auf der Startseite kann der Benutzer sich anmelden oder einen neuen Account erst
 # Systemdokumentation
 
 ## Kurzanleitung für benutzer
-1. Benutzer erstellen / Mit Benutzer anmelden
-2. Fächer mittels "+" Knopf erstellen.
-3. Auf erstelltes Fach klicken.
-4. Noten mittels "+" Knopf erstellen.
-5. Auf der Homepage auf den Plus Knopf und ein Bild hochladen
-6. In der Gallerie hochgeladene Prüfungen anschauen
-7. Mittels Logout Button abmelden.
+1. Benutzer erstellen / Mit Benutzer anmelden.
+2. Auf dem Exam Screen auf das Plus drücken.
+3. Kursname und Note eintragen und auf Kurs erstellen drücken.
+4. Auf der Homepage auf den Plus Knopf und ein Bild hochladen.
+5. In der Gallerie hochgeladene Prüfungen anschauen.
+6. Mittels Logout Button abmelden.
 ## Persistenzlösung
 Die vom Nutzer erstellten Daten werden auf Firebase in einer Datenbank gespeichert.
 
@@ -50,19 +49,20 @@ Der Nutzer kann mittels des Kamera Buttons Bilder von seinen Prüfungen speicher
 
 ## Netzwerkfuktionalität
 Damit die Applikation Daten in der Datenbank speichern kann, ist eine Internetverbindung vorausgesetzt.
+Ebenfalls wird für die Authentifizierung eine Internetverbindung vorausgesetzt.
 
 # Testdokumentation
 
 ## Testfälle
-| Testfall Nr. | Anf. Nr. | Voraussetzung                                                                                 | Eingabe                                                                        | Ausgabe                               |
-|--------------|----------|-----------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|---------------------------------------|
-| 1            | 1        | Die Applikation ist gestartet und der Benutzer hat auf den "Account erstellen knopf gedrückt" | Email und Password des Benutzer eingeben                                       | Weiterleitung auf die Startseite      |
-| 2            | 2        | Die Applikation ist gestartet                                                                 | Email und Password des Benutzer eingeben                                       | Der Benutzer kommt auf die User Seite |
-| 3            | 3        | Der Benutzer ist angemeldet                                                                   | Auf den "Bilder Hochladen" knopf drücken und ein Bild hochladen                | Keine                                 |
-| 4            | 4        | Der Benutzer ist angemeldet und auf dem exam screen                                           | Der Benutzer drück auf das Plus und gibt den Namen des Faches                  | Keine                                 |
-| 5            | 5        | Der Benutzer ist angemeldet und auf dem exam screen                                           | Der Benutzer drück auf das Plus gibt die Note ein und drückt auf create course | Keine                                 |
-| 6            | 6        | Der Benutzer ist angemeldet und auf dem exam screen                                           | Keine                                                                          | Keine                                 |
-| 7            | 7        | Der Benutzer ist in angemeldet und in der Gallerie                                            | Keine                                                                          | Alle Bilder werden angezeigt.         |
+| Testfall Nr. | Anf. Nr. | Voraussetzung                                                                                 | Eingabe                                                                        | Ausgabe                                |
+|--------------|----------|-----------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|----------------------------------------|
+| 1            | 1        | Die Applikation ist gestartet und der Benutzer hat auf den "Account erstellen knopf gedrückt" | Email und Password des Benutzer eingeben                                       | Weiterleitung auf die Startseite       |
+| 2            | 2        | Die Applikation ist gestartet                                                                 | Email und Password des Benutzer eingeben                                       | Der Benutzer kommt auf die User Seite  |
+| 3            | 3        | Der Benutzer ist angemeldet                                                                   | Auf den "Bilder Hochladen" knopf drücken und ein Bild hochladen                | Keine                                  |
+| 4            | 4        | Der Benutzer ist angemeldet und auf dem exam screen                                           | Der Benutzer drück auf das Plus und gibt den Namen des Faches                  | Keine                                  |
+| 5            | 5        | Der Benutzer ist angemeldet und auf dem exam screen                                           | Der Benutzer drück auf das Plus gibt die Note ein und drückt auf create course | Keine                                  |
+| 6            | 6        | Der Benutzer ist angemeldet und auf dem exam screen                                           | Keine                                                                          | Alle Kurse und Noten werden angezeigt. |
+| 7            | 7        | Der Benutzer ist in angemeldet und in der Gallerie                                            | Keine                                                                          | Alle Bilder werden angezeigt.          |
 
 ## Testprotokoll
 
