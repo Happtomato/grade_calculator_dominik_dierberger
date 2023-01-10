@@ -49,6 +49,9 @@ class _loginWidgetState extends State<LoginWidget> {
                 Container(
                   margin: const EdgeInsets.only(top: 20.0),
                   child: TextFormField(
+                    obscureText: true,
+                    enableSuggestions: false,
+                    autocorrect: false,
                     controller: _passwordController,
                     decoration: const InputDecoration(labelText: 'Password'),
                     validator: (value) {
@@ -106,65 +109,21 @@ class _loginWidgetState extends State<LoginWidget> {
                         );
                       }
                     },
-                    child: const Text('Submit'),
                     style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.deepPurpleAccent,
                         padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
                         ),
+                    child: const Text('Submit'),
                   ),
                 ),
-              ],
-            ),
-          ),
-        ),
-      ),
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          color: Colors.deepPurpleAccent,
-          boxShadow: [
-            BoxShadow(
-              blurRadius: 20,
-              color: Colors.black.withOpacity(.1),
-            )
-          ],
-        ),
-        child: SafeArea(
-
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
-            child: GNav(
-              rippleColor: Colors.purple[300]!,
-              hoverColor: Colors.purple[100]!,
-              gap: 8,
-              activeColor: Colors.black,
-              iconSize: 24,
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-              duration: const Duration(milliseconds: 400),
-
-              tabs: [
-                GButton(
-
-                  icon: LineIcons.home,
-
+                ElevatedButton(
                   onPressed: () {
-                    Navigator.push(
+                    Navigator.pop(
                       context,
-                      MaterialPageRoute(
-                          builder: (context) => const MyApp()),
+                      MaterialPageRoute(builder: (context) => const MyApp()),
                     );
                   },
-                ),
-                GButton(
-                  icon: LineIcons.user,
-                  text: 'Profile',
-                  onPressed: () {
-                    Navigator.push(
-
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const LoginWidget()),
-                    );
-                  },
+                  child: const Text('Go Back'),
                 ),
               ],
             ),

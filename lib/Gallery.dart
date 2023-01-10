@@ -1,8 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:m335/SignOutWidget.dart';
+import 'package:m335/UserPageWidget.dart';
+import 'package:m335/courseListWidget.dart';
 import 'package:m335/couseScreen.dart';
 import 'package:m335/main.dart';
 
@@ -22,6 +25,9 @@ class _GalleryState extends State<Gallery> {
   void initState() {
     super.initState();
     loadImages();
+    setState(() {
+      _images;
+    });
   }
 
   void loadImages() async {
@@ -90,18 +96,7 @@ class _GalleryState extends State<Gallery> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const MyApp()),
-                    );
-                  },
-                ),
-                GButton(
-                  icon: LineIcons.graduationCap,
-                  text: 'Exams',
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => CreateCourseScreen()),
+                          builder: (context) => const UserPageWidget()),
                     );
                   },
                 ),
@@ -113,6 +108,17 @@ class _GalleryState extends State<Gallery> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => const Gallery()),
+                    );
+                  },
+                ),
+                GButton(
+                  icon: LineIcons.graduationCap,
+                  text: 'Exams',
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => CourseList(userUid: FirebaseAuth.instance.currentUser!.uid)),
                     );
                   },
                 ),

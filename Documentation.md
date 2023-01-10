@@ -6,13 +6,13 @@
 | 1      | Der Benutzer kann ein Konto erstellen                                   |
 | 2      | Der Benutzer kann sich anmelden                                         |
 | 3      | Der Benutzer kann Bilder seiner Prüfungen hochladen                     |
-| 4      | Der Benutzer kann Neue Semester erstellen                               |
-| 5      | Der Benutzer kann Fächer erstellen                                      |
-| 6      | Der Benutzer kann Noten eintragen                                       |
-| 7      | Der Benutzer kann die Hochgeladenen Prüfungen in der Gallerie anschauen |
+| 4      | Der Benutzer kann Fächer erstellen                                      |
+| 5      | Der Benutzer kann Noten eintragen                                       |
+| 6      | Der Benutzer kann alle Fächer und deren Noten anschauen                 |
+| 6      | Der Benutzer kann die Hochgeladenen Prüfungen in der Gallerie anschauen |
 ## UseCase
 
-![](/assets/Documentation/UseCase.jpg)
+![](/assets/Documentation/UseCase.png)
 ## Storyboard
 ![](/assets/Documentation/Storyboard.jpg)
 ## Navigation
@@ -72,7 +72,7 @@ Damit die Applikation Daten in der Datenbank speichern kann, ist eine Internetve
 | 1        | 1            | 3.1.2023 | Dominik Dierberger | OK       | -                         |
 | 2        | 2            | 3.1.2023 | Dominik Dierberger | OK       | -                         |
 | 3        | 3            | 3.1.2023 | Dominik Dierberger | OK       | Im Emulator nicht testbar |
-| 4        | 4            | 3.1.2023 | Dominik Dierberger | NOK      | Zeitlich zu Knapp         |
-| 5        | 5            | 3.1.2023 | Dominik Dierberger | NOK      | Zeitlich zu Knapp         |
-| 6        | 6            | 3.1.2023 | Dominik Dierberger | NOK      | Zeitlich zu Knapp         |
+| 4        | 4            | 3.1.2023 | Dominik Dierberger | OK       | -                         |
+| 5        | 5            | 3.1.2023 | Dominik Dierberger | OK       | -                         |
+| 6        | 6            | 3.1.2023 | Dominik Dierberger | OK       | -                         |
 | 7        | 7            | 3.1.2023 | Dominik Dierberger | OK       | -                         |

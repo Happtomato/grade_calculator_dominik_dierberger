@@ -30,28 +30,64 @@ class CourseList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: StreamBuilder(
-        stream: getUserGrades(userUid),
+        stream: FirebaseFirestore.instance
+            .collection("courses")
+            .where('uid', isEqualTo: userUid)
+            .snapshots(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
+            return CircularProgressIndicator();
+          }
+          final List<QueryDocumentSnapshot<Map<String, dynamic>>> docSnapList =
+              snapshot.data?.docs ?? [];
+
+          if (docSnapList.isEmpty) {
             return const Center(
-              child: CircularProgressIndicator(),
+              child: Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Text(
+                  'No courses found.',
+                ),
+              ),
             );
           }
-          return DataTable(
-            columns: const [
-              DataColumn(label: Text('Name')),
-              DataColumn(label: Text('Grade')),
-            ],
-            rows: snapshot.data!.docs.map(
-                  (courses) => DataRow(
-                cells: [
-                  DataCell(Text(courses['name'])),
-                  DataCell(Text(courses['grade'].toString())),
-                ],
-              ),
-            ).toList(),
+          final List<Map<String, dynamic>> docList = docSnapList.map((QueryDocumentSnapshot<Map<String, dynamic>> queryDocumentSnapshot) => queryDocumentSnapshot.data()).toList();
+          return ListView.builder(
+            scrollDirection: Axis.vertical,
+            shrinkWrap: true,
+            itemCount: docList.length,
+            itemBuilder: (context, index) {
+
+              String name = docList[index]['name'].toString();
+              String grade = docList[index]['grade'].toString();
+
+              name ??= "No name";
+              grade ??= "No grade";
+
+              return ListTile(
+                leading: Text(name),
+                title: Text(grade),
+              );
+            },
           );
         },
+      ),
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          FloatingActionButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => CreateCourseScreen(),
+                ),
+              );
+            },
+            tooltip: 'Create new course',
+            child: const Icon(Icons.plus_one),
+          ),
+        ],
       ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(

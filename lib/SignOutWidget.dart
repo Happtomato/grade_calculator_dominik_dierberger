@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:m335/UserPageWidget.dart';
 import 'package:m335/main.dart';
-import 'firebase_options.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class SignOutWidget extends StatefulWidget {
@@ -13,8 +12,6 @@ class SignOutWidget extends StatefulWidget {
 
 class _signOutWidgetState extends State<SignOutWidget> {
   final _formKey = GlobalKey<FormState>();
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
   final _auth = FirebaseAuth.instance;
 
   @override
@@ -40,11 +37,20 @@ class _signOutWidgetState extends State<SignOutWidget> {
                     if(_auth.currentUser == null) {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => MyApp()),
+                          MaterialPageRoute(builder: (context) => const MyApp()),
                         );
                       };
                   },
                   child: const Text('Confirm Sign Out'),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pop(
+                      context,
+                      MaterialPageRoute(builder: (context) => const UserPageWidget()),
+                    );
+                  },
+                  child: const Text('Go Back'),
                 ),
               ],
             ),

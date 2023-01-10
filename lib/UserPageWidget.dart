@@ -1,13 +1,14 @@
 import 'dart:io';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:m335/LoginWidget.dart';
+import 'package:m335/Gallery.dart';
 import 'package:m335/SignOutWidget.dart';
-import 'package:m335/couseScreen.dart';
-import 'package:m335/main.dart';
+import 'package:m335/courseListWidget.dart';
+
 
 class UserPageWidget extends StatefulWidget {
   const UserPageWidget({super.key});
@@ -62,6 +63,9 @@ class _userPageWidgetState extends State<UserPageWidget> {
           ),
         ],
       ),
+    body: Text(
+        "welcome${FirebaseAuth.instance.currentUser!.displayName}",
+      ),
     bottomNavigationBar: Container(
         decoration: BoxDecoration(
           color: Colors.white,
@@ -95,7 +99,18 @@ class _userPageWidgetState extends State<UserPageWidget> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const MyApp()),
+                          builder: (context) => const UserPageWidget()),
+                    );
+                  },
+                ),
+                GButton(
+                  icon: LineIcons.photoVideo,
+                  text: 'Gallery',
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Gallery()),
                     );
                   },
                 ),
@@ -106,7 +121,7 @@ class _userPageWidgetState extends State<UserPageWidget> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => CreateCourseScreen()),
+                          builder: (context) => CourseList(userUid: FirebaseAuth.instance.currentUser!.uid)),
                     );
                   },
                 ),

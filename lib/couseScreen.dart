@@ -5,6 +5,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:m335/Gallery.dart';
 import 'package:m335/SignOutWidget.dart';
+import 'package:m335/UserPageWidget.dart';
 import 'package:m335/main.dart';
 import 'package:m335/courseListWidget.dart';
 
@@ -93,8 +94,8 @@ class _CreateCourseScreenState extends State<CreateCourseScreen> {
               gap: 8,
               activeColor: Colors.black,
               iconSize: 24,
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-              duration: const Duration(milliseconds: 400),
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              duration: Duration(milliseconds: 400),
               tabBackgroundColor: Colors.grey[100]!,
               color: Colors.black,
               backgroundColor: Colors.grey,
@@ -106,18 +107,7 @@ class _CreateCourseScreenState extends State<CreateCourseScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const MyApp()),
-                    );
-                  },
-                ),
-                GButton(
-                  icon: LineIcons.graduationCap,
-                  text: 'Exams',
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => CreateCourseScreen()),
+                          builder: (context) => const UserPageWidget()),
                     );
                   },
                 ),
@@ -129,6 +119,17 @@ class _CreateCourseScreenState extends State<CreateCourseScreen> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => const Gallery()),
+                    );
+                  },
+                ),
+                GButton(
+                  icon: LineIcons.graduationCap,
+                  text: 'Exams',
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => CourseList(userUid: FirebaseAuth.instance.currentUser!.uid)),
                     );
                   },
                 ),
