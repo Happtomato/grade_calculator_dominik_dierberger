@@ -1,11 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:m335/Gallery.dart';
 import 'package:m335/SignOutWidget.dart';
+import 'package:m335/UserPageWidget.dart';
 import 'package:m335/couseScreen.dart';
-import 'package:m335/main.dart';
 
 class CourseList extends StatelessWidget {
   final String userUid;
@@ -29,6 +30,11 @@ class CourseList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        backgroundColor: Colors.deepPurpleAccent,
+        title: Image.asset('assets/images/logo.png', height:100, width:100, fit: BoxFit.fitWidth),
+      ),
       body: StreamBuilder(
         stream: FirebaseFirestore.instance
             .collection("courses")
@@ -85,19 +91,13 @@ class CourseList extends StatelessWidget {
               );
             },
             tooltip: 'Create new course',
-            child: const Icon(Icons.plus_one),
+            child: const Icon(Icons.add),
           ),
         ],
       ),
       bottomNavigationBar: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              blurRadius: 20,
-              color: Colors.black.withOpacity(.1),
-            )
-          ],
         ),
         child: SafeArea(
 
@@ -111,35 +111,19 @@ class CourseList extends StatelessWidget {
               iconSize: 24,
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
               duration: const Duration(milliseconds: 400),
-              tabBackgroundColor: Colors.grey[100]!,
-              color: Colors.black,
-              backgroundColor: Colors.grey,
               tabs: [
                 GButton(
                   icon: LineIcons.home,
-                  text: 'Home',
                   onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const MyApp()),
-                    );
-                  },
-                ),
-                GButton(
-                  icon: LineIcons.graduationCap,
-                  text: 'Exams',
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => CreateCourseScreen()),
+                          builder: (context) => const UserPageWidget()),
                     );
                   },
                 ),
                 GButton(
                   icon: LineIcons.photoVideo,
-                  text: 'Gallery',
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -149,8 +133,17 @@ class CourseList extends StatelessWidget {
                   },
                 ),
                 GButton(
+                  icon: LineIcons.graduationCap,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => CourseList(userUid: FirebaseAuth.instance.currentUser!.uid)),
+                    );
+                  },
+                ),
+                GButton(
                   icon: LineIcons.user,
-                  text: 'Profile',
                   onPressed: () {
                     Navigator.push(
                       context,

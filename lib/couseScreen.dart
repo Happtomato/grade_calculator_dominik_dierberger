@@ -6,7 +6,6 @@ import 'package:line_icons/line_icons.dart';
 import 'package:m335/Gallery.dart';
 import 'package:m335/SignOutWidget.dart';
 import 'package:m335/UserPageWidget.dart';
-import 'package:m335/main.dart';
 import 'package:m335/courseListWidget.dart';
 
 class CreateCourseScreen extends StatefulWidget {
@@ -25,7 +24,9 @@ class _CreateCourseScreenState extends State<CreateCourseScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Courses'),
+        automaticallyImplyLeading: false,
+        backgroundColor: Colors.deepPurpleAccent,
+        title: Image.asset('assets/images/logo.png', height:100, width:100, fit: BoxFit.fitWidth),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -75,14 +76,8 @@ class _CreateCourseScreenState extends State<CreateCourseScreen> {
         ),
       ),
       bottomNavigationBar: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              blurRadius: 20,
-              color: Colors.black.withOpacity(.1),
-            )
-          ],
         ),
         child: SafeArea(
 
@@ -94,15 +89,11 @@ class _CreateCourseScreenState extends State<CreateCourseScreen> {
               gap: 8,
               activeColor: Colors.black,
               iconSize: 24,
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-              duration: Duration(milliseconds: 400),
-              tabBackgroundColor: Colors.grey[100]!,
-              color: Colors.black,
-              backgroundColor: Colors.grey,
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              duration: const Duration(milliseconds: 400),
               tabs: [
                 GButton(
                   icon: LineIcons.home,
-                  text: 'Home',
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -113,7 +104,6 @@ class _CreateCourseScreenState extends State<CreateCourseScreen> {
                 ),
                 GButton(
                   icon: LineIcons.photoVideo,
-                  text: 'Gallery',
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -124,7 +114,6 @@ class _CreateCourseScreenState extends State<CreateCourseScreen> {
                 ),
                 GButton(
                   icon: LineIcons.graduationCap,
-                  text: 'Exams',
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -135,7 +124,6 @@ class _CreateCourseScreenState extends State<CreateCourseScreen> {
                 ),
                 GButton(
                   icon: LineIcons.user,
-                  text: 'Profile',
                   onPressed: () {
                     Navigator.push(
                       context,

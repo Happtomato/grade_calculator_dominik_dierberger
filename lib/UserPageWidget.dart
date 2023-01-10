@@ -36,7 +36,7 @@ class _userPageWidgetState extends State<UserPageWidget> {
   Future uploadImage() async {
     Reference storageReference = FirebaseStorage.instance
         .ref()
-        .child('images/${DateTime.now().toString()}');
+        .child('images/${FirebaseAuth.instance.currentUser!.uid.toString()}');
     UploadTask uploadTask = storageReference.putFile(_image);
     await uploadTask.whenComplete(() => null);
     print('Image Uploaded');
@@ -51,7 +51,9 @@ class _userPageWidgetState extends State<UserPageWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Upload Image"),
+        automaticallyImplyLeading: false,
+        backgroundColor: Colors.deepPurpleAccent,
+        title: Image.asset('assets/images/logo.png', height:100, width:100, fit: BoxFit.fitWidth),
       ),
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
@@ -63,18 +65,30 @@ class _userPageWidgetState extends State<UserPageWidget> {
           ),
         ],
       ),
-    body: Text(
-        "welcome${FirebaseAuth.instance.currentUser!.displayName}",
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Text(
+              'Welcome to',
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Text(
+              'Exam Companion',
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
       ),
     bottomNavigationBar: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              blurRadius: 20,
-              color: Colors.black.withOpacity(.1),
-            )
-          ],
         ),
         child: SafeArea(
 
@@ -86,15 +100,11 @@ class _userPageWidgetState extends State<UserPageWidget> {
               gap: 8,
               activeColor: Colors.black,
               iconSize: 24,
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-              duration: Duration(milliseconds: 400),
-              tabBackgroundColor: Colors.grey[100]!,
-              color: Colors.black,
-              backgroundColor: Colors.grey,
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              duration: const Duration(milliseconds: 400),
               tabs: [
                 GButton(
                   icon: LineIcons.home,
-                  text: 'Home',
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -105,7 +115,6 @@ class _userPageWidgetState extends State<UserPageWidget> {
                 ),
                 GButton(
                   icon: LineIcons.photoVideo,
-                  text: 'Gallery',
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -116,7 +125,6 @@ class _userPageWidgetState extends State<UserPageWidget> {
                 ),
                 GButton(
                   icon: LineIcons.graduationCap,
-                  text: 'Exams',
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -127,7 +135,6 @@ class _userPageWidgetState extends State<UserPageWidget> {
                 ),
                 GButton(
                   icon: LineIcons.user,
-                  text: 'Profile',
                   onPressed: () {
                     Navigator.push(
                       context,

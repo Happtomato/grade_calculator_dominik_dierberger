@@ -3,11 +3,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:m335/LoginWidget.dart';
 import 'package:m335/SignUpWidget.dart';
 import 'firebase_options.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:line_icons/line_icons.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:m335/main.dart';
-
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
