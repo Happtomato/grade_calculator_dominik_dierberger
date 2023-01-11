@@ -78,4 +78,4 @@ Ebenfalls wird für die Authentifizierung eine Internetverbindung vorausgesetzt.
 
 # Demovideo
 
-![](/assets/Documentation/Demo.mp4)
+[![](/assets/Documentation/Demo.mp4)]
