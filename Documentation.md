@@ -77,5 +77,5 @@ Ebenfalls wird für die Authentifizierung eine Internetverbindung vorausgesetzt.
 | 7        | 7            | 3.1.2023 | Dominik Dierberger | OK       | -                         |
 
 # Demovideo
-
-[![](/assets/Documentation/Demo.mp4)]
+    
+[![Demo Video](/assets/images/logo.png)](/assets/Documentation/Demo.mp4)  
