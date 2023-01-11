@@ -78,4 +78,8 @@ Ebenfalls wird für die Authentifizierung eine Internetverbindung vorausgesetzt.
 
 # Demovideo
     
-[![Demo Video](/assets/images/logo.png)](/assets/Documentation/Demo.mp4)  
+
+
+
+https://user-images.githubusercontent.com/40277552/211743870-f7a858ef-bf4c-45bb-aeb8-92c2592d2f15.mp4
+
